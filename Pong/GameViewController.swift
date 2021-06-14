@@ -3,27 +3,20 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+  private var scene: GameScene!
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if let scene = GKScene(fileNamed: "GameScene") {
-      if let sceneNode = scene.rootNode as! GameScene? {
+    let view = view as! SKView
+    view.isMultipleTouchEnabled = false
 
-        sceneNode.scaleMode = .aspectFill
+    scene = GameScene(size: view.bounds.size)
 
-        if let view = self.view as! SKView? {
-          view.presentScene(sceneNode)
-          view.ignoresSiblingOrder = true
-          view.showsFPS = true
-          view.showsNodeCount = true
-        }
-      }
-    }
+    view.presentScene(scene)
   }
 
   override var shouldAutorotate: Bool { true }
-
   override var supportedInterfaceOrientations: UIInterfaceOrientationMask { .portrait }
-
   override var prefersStatusBarHidden: Bool { true }
 }
