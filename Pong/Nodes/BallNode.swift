@@ -13,8 +13,8 @@ class BallNode: SKSpriteNode {
       body.allowsRotation = true
       body.affectedByGravity = false
       body.categoryBitMask = PhysicsCategory.ball
-      body.collisionBitMask = PhysicsCategory.stick
-      body.contactTestBitMask = PhysicsCategory.stick
+      body.collisionBitMask = PhysicsCategory.stick | PhysicsCategory.topWall | PhysicsCategory.bottomWall
+      body.contactTestBitMask = PhysicsCategory.stick | PhysicsCategory.topWall | PhysicsCategory.bottomWall
       body.linearDamping = 0
       body.angularDamping = 0
       body.friction = 0
